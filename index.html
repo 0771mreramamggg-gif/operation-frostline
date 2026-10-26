@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>OPERATION: FROSTLINE</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+</head>
+<body>
+<div id="game"></div>
+
+<div id="hud">
+  <div id="obj"><small>OBJECTIVE <span id="oN"></span></small><h2 id="oT"></h2><p id="oP"></p><p id="oD"></p></div>
+  <div id="bars"><label>SHIELD</label><div class="bar"><i id="sh"></i></div><label>ENERGY</label><div class="bar e"><i id="en"></i></div></div>
+  <div id="prog"><i id="pg"></i></div>
+  <div id="cross"></div><div id="prompt"></div><div id="toast"></div><div id="flash"></div>
+</div>
+
+<div id="tc">
+  <button id="bJ">JUMP</button><button id="bT">TAG</button><button id="bU">USE</button><button id="bS">RUN</button><button id="bP">II</button>
+</div>
+
+<div class="ov show" id="loading"><h1>FROSTLINE</h1><p>Loading… (an internet connection is needed for the 3D library)</p></div>
+
+<div class="ov" id="menu">
+  <h1>OPERATION:<br>FROSTLINE</h1>
+  <p class="sub">Non-lethal recovery mission · Arctic Relay Zone</p>
+  <button id="bStart">START MISSION</button>
+  <button id="bSet">SETTINGS</button>
+  <button id="bInstr">INSTRUCTIONS</button>
+</div>
+
+<div class="ov" id="instr">
+  <h2>BRIEFING</h2>
+  <div class="panel">
+    <p><b>Move</b> WASD · <b>Look</b> Mouse · <b>Sprint</b> Shift · <b>Jump</b> Space</p>
+    <p><b>Tag drone</b> Left click / F (costs energy, recharges) · <b>Interact</b> E · <b>Pause</b> Esc / P</p>
+    <p><b>Mobile:</b> left thumb moves, right thumb looks, use on-screen buttons.</p>
+    <p>1. Reach the relay outpost. 2. Recover 3 equipment crates. 3. Restore the power station (hold E). 4. Activate the comms beacon (hold E).</p>
+    <p>Patrol drones investigate noise, especially sprinting, and drain your shield up close. Tag them to disable them for a few seconds. Checkpoints save after each objective.</p>
+  </div>
+  <button id="bIBack">BACK</button>
+</div>
+
+<div class="ov" id="settings">
+  <h2>SETTINGS</h2>
+  <div class="panel">
+    <label>Volume <input id="sVol" type="range" min="0" max="100" value="60"></label>
+    <label>Look sensitivity <input id="sSens" type="range" min="30" max="250" value="100"></label>
+    <label class="chk"><input id="sMute" type="checkbox"> Mute all audio</label>
+  </div>
+  <button id="bSBack">BACK</button>
+</div>
+
+<div class="ov" id="pause">
+  <h2>PAUSED</h2>
+  <button id="bResume">RESUME</button>
+  <button id="bCP">LAST CHECKPOINT</button>
+  <button id="bRestart">RESTART MISSION</button>
+  <button id="bPSet">SETTINGS</button>
+  <button id="bQuit">MAIN MENU</button>
+</div>
+
+<div class="ov" id="complete">
+  <h1>MISSION COMPLETE</h1>
+  <p class="sub" id="stats"></p>
+  <button id="bAgain">PLAY AGAIN</button>
+</div>
+
+<script type="module" src="game.js"></script>
+</body>
+</html>
